@@ -11,21 +11,38 @@ body {
 }
 
 input,
-button,
-.social-media img:hover {
+button {
   font-family: "Lato", sans-serif;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
   transform: scale(1);
+  border-radius: 4px;
+}
+
+input:focus {
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
 }
 
 button:hover,
-input[type="button"]:hover,
-.waitlist:hover,
-.social-media img:hover {
+input[type="button"]:hover {
   transform: scale(1.04);
 }
+
 .title {
   text-transform: capitalize;
   font-weight: bold;
@@ -67,13 +84,9 @@ input[type="button"]:hover,
 }
 
 .nav-right-button {
-  padding: 0.6rem 1.5rem;
-  font-family: "Lato", sans-serif;
   border: 2px solid #ffffff;
   background: transparent;
   color: #ffffff;
-  border-radius: 4px;
-  font-weight: 700;
 }
 
 .burger {
@@ -121,9 +134,17 @@ input[type="button"]:hover,
     transition: all 0.3s;
   }
 
+  .nav-bar.active .burger {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+  }
+
   .nav-bar.active .burger span {
     background-color: #120448;
+    z-index: 3;
   }
+
   .nav-bar.active .burger span:nth-child(1) {
     transform: rotate(45deg);
   }
@@ -133,6 +154,7 @@ input[type="button"]:hover,
   }
 
   .nav-bar.active .nav-right {
+    z-index: 4;
     transform: translateY(0);
     background: #ffffff;
     color: #000000;
@@ -647,7 +669,18 @@ input[type="button"]:hover,
   margin: 0 auto;
   border: none;
   background: #120448;
+}
+
+.waitlist a {
   color: #ffffff;
+}
+.waitlist:hover a {
+  color: #120448;
+}
+
+.waitlist:hover {
+  background-color: transparent;
+  border: 1px solid #120448;
 }
 
 @media (max-width: 1000px) {
@@ -698,4 +731,12 @@ footer {
 .social-media {
   display: flex;
   gap: 2rem;
+}
+
+.social-media img {
+  cursor: pointer;
+  transform: scale(1);
+}
+.social-media img:hover {
+  transform: scale(1.04);
 }
